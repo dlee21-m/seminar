@@ -303,6 +303,29 @@ html:not(.js) .slide + .slide { border-top: 1px solid var(--line); }
 #slide-17 .grid > div { min-height: 0; justify-content: center; }
 #slide-17 .s18-diagram { flex: 1 1 0%; min-height: 0; max-height: 26rem; }
 
+/* Slides 12, 13, 20 · larger diagrams with short-screen safety margins */
+#slide-11, #slide-12, #slide-19 { padding-bottom: calc(max(3%, 12px) + 60px); }
+@media (max-height: 820px) {
+    #slide-11, #slide-12 { padding-bottom: calc(max(3%, 12px) + 38px); }
+    #slide-11 .col-span-8, #slide-12 .col-span-8 { padding: 0.75rem; }
+    #slide-11 .col-span-8 svg, #slide-12 .col-span-8 svg { max-height: 14.5rem; }
+    #slide-11 .col-span-4, #slide-12 .col-span-4 { gap: 0.5rem; }
+    #slide-11 .col-span-4 > div, #slide-12 .col-span-4 > div { padding: 0.75rem; }
+    #slide-11 .col-span-4 h3, #slide-12 .col-span-4 h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    #slide-11 .col-span-4 p, #slide-12 .col-span-4 p { font-size: 0.75rem; line-height: 1.55; }
+    #slide-11 #s12-status, #slide-12 #s13-badge { font-size: 0.75rem; padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    #slide-19 { padding-bottom: calc(max(3%, 12px) + 38px); }
+    #slide-19 .col-span-8 { padding: 0.75rem; }
+    #slide-19 .col-span-4 { gap: 0.4rem; }
+    #slide-19 .col-span-4 > div { padding: 0.5rem 0.75rem; }
+    #slide-19 .col-span-4 p { font-size: 0.75rem; }
+    #slide-19 > div:last-child { padding: 0.5rem 0.75rem; margin-top: 0.25rem; }
+    #slide-19 > div:last-child p { font-size: 0.9rem; }
+}
+@media (max-width: 1100px) {
+    #slide-11 > div:first-child, #slide-12 > div:first-child { flex-direction: column; align-items: flex-start; }
+}
+
 /* Slide 18 · the selected mode is emphasized, the other comparison is dimmed */
 #slide-17 .s18-card {
     transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), filter 0.3s var(--ease-out);
@@ -1912,8 +1935,8 @@ button:disabled { cursor: not-allowed; }
              SLIDE 12: 데이터가 나가는 길 = Word Line & Bit Line
         ====================================================================== -->
         <section class="slide" id="slide-11">
-            <div class="flex justify-between items-end mb-3">
-                <div>
+            <div class="flex justify-between items-end mb-2 gap-4 flex-wrap">
+                <div class="min-w-0 flex-1">
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         데이터가 나가는 길: <span class="text-blue-400">Word Line</span> & <span class="text-purple-400">Bit Line</span>
                     </h2>
@@ -1921,31 +1944,31 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 2단계 시연 버튼 -->
-                <div class="flex space-x-2">
+                <div class="flex gap-2 shrink-0">
                     <button onclick="resetSlide12()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-600 transition">
                         초기화
                     </button>
                     <button onclick="runSlide12Step(1)" id="s12-btn-step1" class="px-4 py-1.5 rounded-lg text-xs font-black bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-500/30 transition">
-                        1단계: Word Line 켜기 (문 열기)
+                        1단계: Word Line 켜기
                     </button>
                     <button onclick="runSlide12Step(2)" id="s12-btn-step2" class="px-4 py-1.5 rounded-lg text-xs font-black bg-purple-500 hover:bg-purple-400 text-white shadow-lg shadow-purple-500/30 transition">
-                        2단계: Bit Line으로 데이터 전송!
+                        2단계: Bit Line 전송
                     </button>
                 </div>
             </div>
 
-            <div class="flex-1 grid grid-cols-12 gap-5 my-1">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 <!-- 좌측 8컬럼: WL & BL 매트릭스/셀 인터랙티브 다이어그램 -->
-                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col justify-between relative">
-                    <div class="flex justify-between items-center">
-                        <span id="s12-status" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-800 text-slate-300 border border-slate-600">
+                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col min-h-0">
+                    <div class="flex justify-between items-center mb-2 gap-2">
+                        <span id="s12-status" class="px-3 py-1 rounded-full text-sm font-bold bg-slate-800 text-slate-300 border border-slate-600">
                             대기 중: 커패시터에 데이터 '1'이 보관되어 있습니다.
                         </span>
-                        <span class="text-xs font-mono text-purple-300 font-bold">↑ CPU 방향 (데이터 출력)</span>
+                        <span class="text-sm font-mono text-purple-300 font-bold shrink-0">↑ CPU 방향 (데이터 출력)</span>
                     </div>
 
-                    <div class="my-auto">
-                        <svg aria-hidden="true" class="w-full h-60" viewBox="0 0 640 230">
+                    <div class="flex-1 flex items-center justify-center min-h-0 my-1">
+                        <svg aria-hidden="true" class="w-full h-full max-h-[22rem]" viewBox="0 0 640 230" preserveAspectRatio="xMidYMid meet">
                             <!-- 상단 CPU 도착지 배너 -->
                             <rect x="130" y="6" width="120" height="30" rx="8" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"/>
                             <text x="190" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="black">CPU로 전달</text>
@@ -1992,19 +2015,19 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 우측 4컬럼: Word Line & Bit Line 역할 요약 -->
-                <div class="col-span-4 flex flex-col space-y-3">
-                    <div class="bg-blue-950/40 border border-blue-500/50 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-blue-300 mb-1">가로줄: Word Line (WL)</span>
-                        <h3 class="text-base font-bold text-white mb-1.5">"몇 번째 줄 문 열어!" 신호선</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+                <div class="col-span-4 flex flex-col gap-4 min-h-0">
+                    <div class="bg-blue-950/40 border border-blue-500/50 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-blue-300 mb-2">가로줄: Word Line (WL)</span>
+                        <h3 class="text-lg font-bold text-white mb-2">"몇 번째 줄 문 열어!" 신호선</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
                             수많은 스위치의 <strong>게이트(손잡이)를 가로로 한 줄에 엮은 선</strong>입니다. WL에 전기가 들어오면 그 줄의 스위치 문이 일제히 열립니다.
                         </p>
                     </div>
 
-                    <div class="bg-purple-950/40 border-2 border-purple-400/70 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-purple-300 mb-1">세로줄: Bit Line (BL)</span>
-                        <h3 class="text-base font-bold text-white mb-1.5">데이터가 CPU로 달리는 고속도로</h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
+                    <div class="bg-purple-950/40 border-2 border-purple-400/70 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-purple-300 mb-2">세로줄: Bit Line (BL)</span>
+                        <h3 class="text-lg font-bold text-white mb-2">데이터가 CPU로 달리는 고속도로</h3>
+                        <p class="text-sm text-slate-200 leading-relaxed">
                             스위치 문이 열리면 커패시터 안에 있던 <strong>1 또는 0의 전기 신호가 Bit Line을 타고</strong> 빠져나가 CPU로 전달됩니다.
                         </p>
                     </div>
@@ -2016,8 +2039,8 @@ button:disabled { cursor: not-allowed; }
              SLIDE 13: 옆집으로 전기가 새지 않게 = STI (소자 분리막)
         ====================================================================== -->
         <section class="slide" id="slide-12">
-            <div class="flex justify-between items-end mb-3">
-                <div>
+            <div class="flex justify-between items-end mb-2 gap-4 flex-wrap">
+                <div class="min-w-0 flex-1">
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         옆집으로 전기가 새지 않게: <span class="text-amber-400">STI (소자 분리막)</span>
                     </h2>
@@ -2025,7 +2048,7 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- STI 유무 비교 토글 -->
-                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 space-x-1.5">
+                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 gap-1.5 shrink-0">
                     <button onclick="setStiMode(false)" id="s13-btn-no" class="px-4 py-1.5 rounded-lg text-xs font-bold transition bg-rose-500 text-white shadow-lg shadow-rose-500/30">
                         STI 없을 때 (전기 누설 · 혼선)
                     </button>
@@ -2035,18 +2058,18 @@ button:disabled { cursor: not-allowed; }
                 </div>
             </div>
 
-            <div class="flex-1 grid grid-cols-12 gap-5 my-1">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 <!-- 좌측 8컬럼: 인접한 두 셀(셀 A, 셀 B) 단면 비교 SVG -->
-                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col justify-between relative">
-                    <div class="flex justify-between items-center">
-                        <span id="s13-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col min-h-0">
+                    <div class="flex justify-between items-center mb-2 gap-2">
+                        <span id="s13-badge" class="px-3 py-1 rounded-full text-sm font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
                             위험: 실리콘 바닥을 통해 옆집 셀 B로 전기가 새어 나감!
                         </span>
-                        <span class="text-xs text-slate-400">Shallow Trench Isolation (얕은 도랑 절연)</span>
+                        <span class="text-sm text-slate-400 shrink-0">얕은 도랑 절연 (STI)</span>
                     </div>
 
-                    <div class="my-auto">
-                        <svg aria-hidden="true" class="w-full h-60" viewBox="0 0 640 230">
+                    <div class="flex-1 flex items-center justify-center min-h-0 my-1">
+                        <svg aria-hidden="true" class="w-full h-full max-h-[22rem]" viewBox="0 0 640 230" preserveAspectRatio="xMidYMid meet">
                             <!-- 하단 공유 실리콘 기판 -->
                             <rect x="30" y="75" width="580" height="140" rx="14" fill="#1e293b" stroke="#475569" stroke-width="2.5"/>
                             <text x="320" y="202" text-anchor="middle" fill="#64748b" font-size="12" font-weight="bold">공통 실리콘 기판 (땅속)</text>
@@ -2100,19 +2123,19 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 우측 4컬럼: STI 핵심 원리 설명 -->
-                <div class="col-span-4 flex flex-col space-y-3">
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-rose-400 mb-1">집적도가 높아지며 생긴 문제</span>
-                        <h3 class="text-base font-bold text-white mb-1.5">벽 없는 원룸촌의 소음·전기 간섭</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+                <div class="col-span-4 flex flex-col gap-4 min-h-0">
+                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-rose-400 mb-2">집적도가 높아지며 생긴 문제</span>
+                        <h3 class="text-lg font-bold text-white mb-2">벽 없는 원룸촌의 전기 간섭</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
                             수백억 개의 스위치를 좁은 땅에 붙여서 짓다 보니, 한쪽에서 흐르던 전기가 실리콘 바닥을 타고 옆 스위치로 새어 들어가 <strong>0이 1로 바뀌는 오류</strong>가 생깁니다.
                         </p>
                     </div>
 
-                    <div class="bg-amber-950/40 border-2 border-amber-400/70 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-amber-300 mb-1">해결책: STI 공법</span>
-                        <h3 class="text-base font-bold text-white mb-1.5">땅을 깊게 파서 절연체 벽을 채움</h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
+                    <div class="bg-amber-950/40 border-2 border-amber-400/70 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-amber-300 mb-2">해결책: STI 공법</span>
+                        <h3 class="text-lg font-bold text-white mb-2">땅을 깊게 파서 절연체 벽을 채움</h3>
+                        <p class="text-sm text-slate-200 leading-relaxed">
                             스위치와 스위치 사이에 얕은 도랑(Trench)을 파고 <strong>전기가 통하지 않는 절연 물질</strong>을 채워 넣어 각 방을 완벽히 독립시킵니다.
                         </p>
                     </div>
@@ -2527,14 +2550,14 @@ button:disabled { cursor: not-allowed; }
 
         <!-- SLIDE 20: DRAM 전체 구조 요약 -->
         <section class="slide" id="slide-19">
-            <div class="mb-3">
-                <h2 class="text-3xl md:text-4xl font-black text-white mt-3">작은 1T1C가 모여 <span class="text-cyan-400">거대한 DRAM</span>이 된다</h2>
+            <div class="mb-2">
+                <h2 class="text-3xl md:text-4xl font-black text-white mt-2">작은 1T1C가 모여 <span class="text-cyan-400">거대한 DRAM</span>이 된다</h2>
                 <p class="text-base text-slate-300 mt-1">저장하고, 선택하고, 연결하고, 데이터를 전달하는 구조</p>
             </div>
-            <div class="flex-1 grid grid-cols-12 gap-5 items-center">
-                <div class="col-span-8 bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-3">
-                    <div class="text-xs font-bold text-cyan-300 px-2 mb-1">실제 DRAM 셀을 단순화한 수직 단면 · 구조 중심</div>
-                    <svg viewBox="0 0 700 420" class="w-full h-80" role="img" aria-label="DRAM 단면: 왼쪽 Bit Line, 오른쪽 큰 원통형 Capacitor, 양쪽 깊은 STI, 중앙 U자형 Buried Gate와 Gate Oxide 및 채널">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
+                <div class="col-span-8 bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-4 flex flex-col min-h-0">
+                    <div class="text-sm font-bold text-cyan-300 mb-2">실제 DRAM 셀을 단순화한 수직 단면 · 구조 중심</div>
+                    <svg viewBox="0 0 700 420" class="w-full flex-1 min-h-0" preserveAspectRatio="xMidYMid meet" role="img" aria-label="DRAM 단면: 왼쪽 Bit Line, 오른쪽 큰 원통형 Capacitor, 양쪽 깊은 STI, 중앙 U자형 Buried Gate와 Gate Oxide 및 채널">
                         <!-- 기판과 상부 절연막 -->
                         <rect x="28" y="220" width="644" height="178" rx="8" fill="#64748b" opacity=".72" stroke="#94a3b8" stroke-width="2"/>
                         <text x="350" y="386" text-anchor="middle" fill="#e2e8f0" font-size="14">Si 기판 (P형)</text>
@@ -2583,30 +2606,30 @@ button:disabled { cursor: not-allowed; }
                         <text x="350" y="409" text-anchor="middle" fill="#cbd5e1" font-size="10">Gate 전압이 U자형 채널을 제어하고, Capacitor가 전하를 저장합니다.</text>
                     </svg>
                 </div>
-                <div class="col-span-4 flex flex-col gap-2.5">
-                    <div class="bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-3">
-                        <div class="text-xs font-bold text-emerald-300">Capacitor</div>
-                        <p class="text-xs text-slate-200">데이터 0과 1을 전하로 저장</p>
+                <div class="col-span-4 flex flex-col gap-3 min-h-0">
+                    <div class="bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-bold text-emerald-300">Capacitor</div>
+                        <p class="text-sm text-slate-200 mt-1">데이터 0과 1을 전하로 저장</p>
                     </div>
-                    <div class="bg-blue-950/40 border border-blue-500/40 rounded-xl p-3">
-                        <div class="text-xs font-bold text-blue-300">Buried Gate + Word Line</div>
-                        <p class="text-xs text-slate-200">U자형 채널을 제어해 셀을 선택</p>
+                    <div class="bg-blue-950/40 border border-blue-500/40 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-bold text-blue-300">Buried Gate + Word Line</div>
+                        <p class="text-sm text-slate-200 mt-1">U자형 채널을 제어해 셀을 선택</p>
                     </div>
-                    <div class="bg-purple-950/40 border border-purple-500/40 rounded-xl p-3">
-                        <div class="text-xs font-bold text-purple-300">Bit Line</div>
-                        <p class="text-xs text-slate-200">데이터가 오가는 통로</p>
+                    <div class="bg-purple-950/40 border border-purple-500/40 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-bold text-purple-300">Bit Line</div>
+                        <p class="text-sm text-slate-200 mt-1">데이터가 오가는 통로</p>
                     </div>
-                    <div class="bg-amber-950/40 border border-amber-500/40 rounded-xl p-3">
-                        <div class="text-xs font-bold text-amber-300">Contact</div>
-                        <p class="text-xs text-slate-200">N+ 확산층과 배선을 연결</p>
+                    <div class="bg-amber-950/40 border border-amber-500/40 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-bold text-amber-300">Contact</div>
+                        <p class="text-sm text-slate-200 mt-1">N+ 확산층과 배선을 연결</p>
                     </div>
-                    <div class="bg-slate-800 border border-slate-600 rounded-xl p-3">
-                        <div class="text-xs font-bold text-slate-300">STI</div>
-                        <p class="text-xs text-slate-200">깊은 절연막으로 이웃 셀과 분리</p>
+                    <div class="bg-slate-800 border border-slate-600 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-bold text-slate-300">STI</div>
+                        <p class="text-sm text-slate-200 mt-1">깊은 절연막으로 이웃 셀과 분리</p>
                     </div>
                 </div>
             </div>
-            <div class="mt-3 bg-gradient-to-r from-cyan-950 via-blue-950 to-slate-900 border border-cyan-400/50 rounded-2xl p-4 text-center">
+            <div class="mt-2 bg-gradient-to-r from-cyan-950 via-blue-950 to-slate-900 border border-cyan-400/50 rounded-2xl p-3 text-center">
                 <p class="text-base md:text-lg font-bold text-white">DRAM은 <span class="text-cyan-300">1T1C</span>라는 단순한 셀을 수없이 모아 데이터를 저장하고, <span class="text-cyan-300">메모리 시스템을 통해 CPU와 주고받는</span> 현대 전자기기의 핵심 메모리입니다.</p>
             </div>
         </section>
