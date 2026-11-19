@@ -302,6 +302,31 @@ html:not(.js) .slide + .slide { border-top: 1px solid var(--line); }
 #slide-17 .grid { min-height: 0; }
 #slide-17 .grid > div { min-height: 0; justify-content: center; }
 #slide-17 .s18-diagram { flex: 1 1 0%; min-height: 0; max-height: 26rem; }
+
+/* Slide 18 · the selected mode is emphasized, the other comparison is dimmed */
+#slide-17 .s18-card {
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), filter 0.3s var(--ease-out);
+}
+#slide-17 .s18-card.is-dimmed { opacity: 0.38; filter: saturate(0.45); transform: scale(0.985); }
+#slide-17 .s18-card.is-active { box-shadow: 0 0 0 2px rgba(251,191,36,0.55), 0 18px 40px -18px rgba(251,191,36,0.45); }
+#slide-17 #s18-card-shared.is-active { box-shadow: 0 0 0 2px rgba(192,132,252,0.7), 0 18px 40px -18px rgba(168,85,247,0.5); }
+#slide-17 .s18-card > div:first-child::after {
+    content: "선택됨";
+    display: inline-block;
+    margin-left: 0.6rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out);
+}
+#slide-17 #s18-card-separate > div:first-child::after { background: #fbbf24; color: #1c1917; }
+#slide-17 #s18-card-shared > div:first-child::after { background: #c084fc; color: #1c1917; }
+#slide-17 .s18-card.is-active > div:first-child::after { opacity: 1; }
+#slide-17 #s18-card-separate.is-active #s18-separate-lines { filter: drop-shadow(0 0 6px rgba(251,191,36,0.95)); }
+#slide-17 #s18-card-shared.is-active #s18-shared-line { filter: drop-shadow(0 0 8px rgba(192,132,252,1)); }
 @media (max-height: 820px) {
     #slide-17 { padding-bottom: calc(max(3%, 12px) + 40px); }
     #slide-17 .grid > div { padding: 0.5rem; }
@@ -2397,10 +2422,10 @@ button:disabled { cursor: not-allowed; }
                 <button onclick="setS18Mode('shared')" id="s18-shared-btn" class="px-4 py-2 rounded-lg text-xs font-bold bg-purple-500 text-slate-950">Bit Line 공유</button>
             </div>
             <div class="flex-1 grid grid-cols-2 gap-4">
-                <div class="bg-slate-900/80 border border-slate-700 rounded-2xl p-4 flex flex-col justify-center">
+                <div id="s18-card-separate" class="s18-card bg-slate-900/80 border border-slate-700 rounded-2xl p-4 flex flex-col justify-center">
                     <div class="text-base font-bold text-slate-200 text-center mb-3">공유하지 않는다면</div>
                     <svg aria-hidden="true" viewBox="0 0 440 300" class="w-full s18-diagram">
-                        <g stroke="#a78bfa" stroke-width="9"><line x1="125" y1="45" x2="125" y2="250"/><line x1="315" y1="45" x2="315" y2="250"/></g>
+                        <g id="s18-separate-lines" stroke="#a78bfa" stroke-width="9"><line x1="125" y1="45" x2="125" y2="250"/><line x1="315" y1="45" x2="315" y2="250"/></g>
                         <g stroke="#38bdf8" stroke-width="5"><line x1="40" y1="115" x2="400" y2="115"/><line x1="40" y1="215" x2="400" y2="215"/></g>
                         <g fill="#2563eb" stroke="#93c5fd" stroke-width="2"><rect x="105" y="105" width="40" height="20" rx="4"/><rect x="295" y="205" width="40" height="20" rx="4"/></g>
                         <g fill="#0f766e" stroke="#5eead4" stroke-width="3"><rect x="95" y="35" width="60" height="55" rx="7"/><rect x="285" y="35" width="60" height="55" rx="7"/></g>
@@ -2410,10 +2435,10 @@ button:disabled { cursor: not-allowed; }
                     </svg>
                     <div class="text-sm text-slate-300 text-center leading-relaxed mt-3">셀마다 별도의 배선이 필요해 배선 공간이 커집니다.</div>
                 </div>
-                <div class="bg-slate-900/80 border-2 border-purple-400/60 rounded-2xl p-4 flex flex-col justify-center">
+                <div id="s18-card-shared" class="s18-card bg-slate-900/80 border-2 border-purple-400/60 rounded-2xl p-4 flex flex-col justify-center">
                     <div class="text-base font-bold text-purple-200 text-center mb-3">하나의 Bit Line을 공유하면</div>
                     <svg aria-hidden="true" viewBox="0 0 440 300" class="w-full s18-diagram">
-                        <line x1="220" y1="30" x2="220" y2="260" stroke="#a78bfa" stroke-width="11" stroke-dasharray="12 8">
+                        <line id="s18-shared-line" x1="220" y1="30" x2="220" y2="260" stroke="#a78bfa" stroke-width="11" stroke-dasharray="12 8">
                             <animate attributeName="stroke-dashoffset" values="0;-40" dur="1.2s" repeatCount="indefinite"/>
                             <animate attributeName="stroke-width" values="9;13;9" dur="1.8s" repeatCount="indefinite"/>
                         </line>
@@ -3778,14 +3803,25 @@ button:disabled { cursor: not-allowed; }
     function setS18Mode(mode) {
         const separate = document.getElementById('s18-separate-btn');
         const shared = document.getElementById('s18-shared-btn');
+        const separateCard = document.getElementById('s18-card-separate');
+        const sharedCard = document.getElementById('s18-card-shared');
         const status = document.getElementById('s18-status');
-        if (mode === 'shared') {
-            shared.className = "px-4 py-2 rounded-lg text-xs font-bold bg-purple-500 text-slate-950";
-            separate.className = "px-4 py-2 rounded-lg text-xs font-bold bg-slate-700 text-slate-200";
+        const isShared = mode === 'shared';
+
+        separateCard.classList.toggle('is-active', !isShared);
+        separateCard.classList.toggle('is-dimmed', isShared);
+        sharedCard.classList.toggle('is-active', isShared);
+        sharedCard.classList.toggle('is-dimmed', !isShared);
+        separate.setAttribute('aria-pressed', String(!isShared));
+        shared.setAttribute('aria-pressed', String(isShared));
+
+        if (isShared) {
+            shared.className = "px-4 py-2 rounded-lg text-xs font-bold bg-purple-500 text-slate-950 ring-2 ring-purple-300/70 shadow-lg shadow-purple-500/30";
+            separate.className = "px-4 py-2 rounded-lg text-xs font-bold bg-slate-700 text-slate-300 hover:bg-slate-600";
             status.textContent = "공유 구조: WL 1 또는 WL 2 중 하나만 선택되므로, 두 셀이 하나의 Bit Line을 함께 사용할 수 있습니다.";
         } else {
-            separate.className = "px-4 py-2 rounded-lg text-xs font-bold bg-amber-400 text-slate-950";
-            shared.className = "px-4 py-2 rounded-lg text-xs font-bold bg-slate-700 text-slate-200";
+            separate.className = "px-4 py-2 rounded-lg text-xs font-bold bg-amber-400 text-slate-950 ring-2 ring-amber-200/70 shadow-lg shadow-amber-500/30";
+            shared.className = "px-4 py-2 rounded-lg text-xs font-bold bg-slate-700 text-slate-300 hover:bg-slate-600";
             status.textContent = "비공유 구조: 각 셀에 별도의 Bit Line을 둔다고 가정한 비교입니다. 배선 공간이 더 많이 필요합니다.";
         }
     }
