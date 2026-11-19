@@ -149,10 +149,12 @@ p, li { text-wrap: pretty; }
     pointer-events: none;
 }
 .js .slide.active {
+    opacity: 1;
     transform: none;
     contain: paint;
     will-change: transform;
-    animation: slide-enter var(--dur-slow) var(--ease-out) both;
+    pointer-events: auto;
+    animation: slide-enter var(--dur-slow) var(--ease-out) backwards;
 }
 @keyframes slide-enter {
     from { opacity: 0; transform: translateX(30px); }
@@ -285,7 +287,7 @@ button:disabled { cursor: not-allowed; }
     .s1-packet.run-fetch, .s1-packet.run-store, .s1-packet.run-output {
         animation: none !important;
     }
-    .js .slide.active { animation: none; transform: none; }
+    .js .slide.active { animation: none; opacity: 1; transform: none; pointer-events: auto; }
 }
 </style>
 </head>
