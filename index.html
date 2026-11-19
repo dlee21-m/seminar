@@ -303,17 +303,29 @@ html:not(.js) .slide + .slide { border-top: 1px solid var(--line); }
 #slide-17 .grid > div { min-height: 0; justify-content: center; }
 #slide-17 .s18-diagram { flex: 1 1 0%; min-height: 0; max-height: 26rem; }
 
-/* Slides 12, 13, 20 · larger diagrams with short-screen safety margins */
-#slide-11, #slide-12, #slide-19 { padding-bottom: calc(max(3%, 12px) + 60px); }
+/* Slides 6, 7, 8, 12, 13, 14, 20 · larger diagrams with short-screen safety margins */
+#slide-5, #slide-6, #slide-7, #slide-11, #slide-12, #slide-13, #slide-19 { padding-bottom: calc(max(3%, 12px) + 60px); }
 @media (max-height: 820px) {
-    #slide-11, #slide-12 { padding-bottom: calc(max(3%, 12px) + 38px); }
-    #slide-11 .col-span-8, #slide-12 .col-span-8 { padding: 0.75rem; }
-    #slide-11 .col-span-8 svg, #slide-12 .col-span-8 svg { max-height: 14.5rem; }
-    #slide-11 .col-span-4, #slide-12 .col-span-4 { gap: 0.5rem; }
-    #slide-11 .col-span-4 > div, #slide-12 .col-span-4 > div { padding: 0.75rem; }
-    #slide-11 .col-span-4 h3, #slide-12 .col-span-4 h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-    #slide-11 .col-span-4 p, #slide-12 .col-span-4 p { font-size: 0.75rem; line-height: 1.55; }
-    #slide-11 #s12-status, #slide-12 #s13-badge { font-size: 0.75rem; padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    #slide-5, #slide-6, #slide-11, #slide-12, #slide-13 { padding-bottom: calc(max(3%, 12px) + 38px); }
+    #slide-5 .col-span-8, #slide-6 .col-span-8, #slide-11 .col-span-8, #slide-12 .col-span-8, #slide-13 .col-span-8 { padding: 0.75rem; }
+    #slide-5 .col-span-8 svg, #slide-6 .col-span-8 svg, #slide-11 .col-span-8 svg, #slide-12 .col-span-8 svg, #slide-13 .col-span-8 svg { max-height: 14.5rem; }
+    #slide-5 .col-span-4, #slide-6 .col-span-4, #slide-11 .col-span-4, #slide-12 .col-span-4, #slide-13 .col-span-4 { gap: 0.5rem; }
+    #slide-5 .col-span-4 > div, #slide-6 .col-span-4 > div, #slide-11 .col-span-4 > div, #slide-12 .col-span-4 > div, #slide-13 .col-span-4 > div { padding: 0.75rem; }
+    #slide-5 .col-span-4 h3, #slide-6 .col-span-4 h3, #slide-11 .col-span-4 h3, #slide-12 .col-span-4 h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    #slide-5 .col-span-4 p, #slide-6 .col-span-4 p, #slide-11 .col-span-4 p, #slide-12 .col-span-4 p, #slide-13 .col-span-4 p { font-size: 0.75rem; line-height: 1.55; }
+    #slide-5 #s6-badge, #slide-6 #s7-status-badge, #slide-11 #s12-status, #slide-12 #s13-badge, #slide-13 #s14-step-status { font-size: 0.75rem; padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    #slide-5 #s6-action-btn, #slide-6 #s7-act-on, #slide-6 #s7-act-off, #slide-6 #s7-act-drain, #slide-13 #s14-sim-btn { font-size: 0.75rem; padding: 0.4rem 0.75rem; }
+
+    #slide-7 { padding-bottom: calc(max(3%, 12px) + 38px); }
+    #slide-7 > div:nth-child(2) { padding: 0.6rem; margin-bottom: 0.5rem; }
+    #slide-7 #mini-30-cells > div { width: 1rem; height: 1rem; font-size: 9px; }
+    #slide-7 .col-span-5 { padding: 0.75rem; }
+    #slide-7 .col-span-5 .w-28 { width: 5.5rem; height: 5.5rem; }
+    #slide-7 .col-span-5 .w-20 { width: 3.5rem; height: 3.5rem; }
+    #slide-7 .col-span-5 .w-14 { width: 3rem; height: 3rem; }
+    #slide-7 .col-span-5 .text-4xl { font-size: 1.875rem; }
+    #slide-7 .col-span-5 .text-base, #slide-7 .col-span-5 .text-sm { font-size: 0.75rem; }
+
     #slide-19 { padding-bottom: calc(max(3%, 12px) + 38px); }
     #slide-19 .col-span-8 { padding: 0.75rem; }
     #slide-19 .col-span-4 { gap: 0.4rem; }
@@ -323,7 +335,7 @@ html:not(.js) .slide + .slide { border-top: 1px solid var(--line); }
     #slide-19 > div:last-child p { font-size: 0.9rem; }
 }
 @media (max-width: 1100px) {
-    #slide-11 > div:first-child, #slide-12 > div:first-child { flex-direction: column; align-items: flex-start; }
+    #slide-5 > div:first-child, #slide-6 > div:first-child, #slide-11 > div:first-child, #slide-12 > div:first-child, #slide-13 > div:first-child { flex-direction: column; align-items: flex-start; }
 }
 
 /* Slide 18 · the selected mode is emphasized, the other comparison is dimmed */
@@ -1192,8 +1204,8 @@ button:disabled { cursor: not-allowed; }
         ====================================================================== -->
         <section class="slide" id="slide-5">
             <!-- 타이틀 영역 -->
-            <div class="flex justify-between items-end mb-3">
-                <div>
+            <div class="flex justify-between items-end mb-2 gap-4 flex-wrap">
+                <div class="min-w-0 flex-1">
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         1과 0을 표현하려면 <span class="text-amber-400">'스위치'</span>가 필요하다
                     </h2>
@@ -1201,31 +1213,31 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 모드 전환 토글 버튼 -->
-                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 space-x-1.5">
-                    <button onclick="setSlide6Mode('noswitch')" id="s6-btn-noswitch" class="px-4 py-1.5 rounded-lg text-xs font-bold transition bg-rose-500 text-white shadow-lg shadow-rose-500/30">
+                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 gap-1.5 shrink-0">
+                    <button onclick="setSlide6Mode('noswitch')" id="s6-btn-noswitch" class="px-4 py-1.5 rounded-lg text-sm font-bold transition bg-rose-500 text-white shadow-lg shadow-rose-500/30">
                         스위치 없음 (전원 직결)
                     </button>
-                    <button onclick="setSlide6Mode('withswitch')" id="s6-btn-withswitch" class="px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">
+                    <button onclick="setSlide6Mode('withswitch')" id="s6-btn-withswitch" class="px-4 py-1.5 rounded-lg text-sm font-bold transition text-slate-400 hover:text-white">
                         스위치 있음 (제어 가능)
                     </button>
                 </div>
             </div>
 
             <!-- 메인 회로 다이어그램 무대 -->
-            <div class="flex-1 grid grid-cols-12 gap-5 my-1">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 
                 <!-- 좌측 8컬럼: 인터랙티브 전기 회로 SVG -->
-                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden">
-                    <div class="flex justify-between items-center z-10">
-                        <span id="s6-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col min-h-0 relative overflow-hidden">
+                    <div class="flex justify-between items-center z-10 mb-2 gap-2">
+                        <span id="s6-badge" class="px-3 py-1 rounded-full text-sm font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
                             상태: 제어 불가 (항상 1 고정)
                         </span>
-                        <span class="text-xs text-slate-400">회로 위 스위치를 눌러 전류를 통제해 보세요</span>
+                        <span class="text-sm text-slate-400">회로 위 스위치를 눌러 전류를 통제해 보세요</span>
                     </div>
 
                     <!-- 전기 회로 SVG -->
-                    <div class="my-auto">
-                        <svg aria-hidden="true" class="w-full h-56" viewBox="0 0 640 220">
+                    <div class="flex-1 flex items-center justify-center min-h-0 my-1">
+                        <svg aria-hidden="true" class="w-full h-full max-h-[22rem]" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet">
                             <!-- 배터리 (전원 공급장치) -->
                             <g transform="translate(50, 55)">
                                 <rect x="0" y="15" width="75" height="95" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
@@ -1277,27 +1289,27 @@ button:disabled { cursor: not-allowed; }
                     </div>
 
                     <!-- 하단 인터랙션 버튼 -->
-                    <div class="flex justify-center space-x-3 z-10">
-                        <button id="s6-action-btn" onclick="toggleSlide6Switch()" disabled class="px-6 py-2.5 rounded-xl text-sm font-black bg-slate-800 text-slate-400 border border-slate-700 cursor-not-allowed transition">
+                    <div class="flex justify-center gap-3 z-10 mt-2">
+                        <button id="s6-action-btn" onclick="toggleSlide6Switch()" disabled class="px-7 py-3 rounded-xl text-base font-black bg-slate-800 text-slate-400 border border-slate-700 cursor-not-allowed transition">
                             스위치가 없어서 끌 수 없습니다
                         </button>
                     </div>
                 </div>
 
                 <!-- 우측 4컬럼: 핵심 개념 정리 -->
-                <div class="col-span-4 flex flex-col space-y-3">
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-rose-400 mb-1">1단계: 전구만 있을 때</span>
-                        <h3 class="text-lg font-bold text-white mb-2">항상 '1'만 나오는 고장 난 신호등</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+                <div class="col-span-4 flex flex-col gap-4 min-h-0">
+                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-rose-400 mb-2">1단계: 전구만 있을 때</span>
+                        <h3 class="text-xl font-bold text-white mb-2">항상 '1'만 나오는 고장 난 신호등</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
                             전선에 전구만 연결하면 전기가 계속 흘러 <strong>무조건 1(켜짐)</strong> 상태만 유지됩니다. 0을 만들 수 없으니 글자나 숫자를 표현할 수 없습니다.
                         </p>
                     </div>
 
-                    <div class="bg-cyan-950/50 border-2 border-cyan-400/70 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-cyan-300 mb-1">2단계: 스위치(트랜지스터) 추가</span>
-                        <h3 class="text-lg font-bold text-white mb-2">비로소 '1'과 '0'을 자유롭게 표현!</h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
+                    <div class="bg-cyan-950/50 border-2 border-cyan-400/70 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-cyan-300 mb-2">2단계: 스위치(트랜지스터) 추가</span>
+                        <h3 class="text-xl font-bold text-white mb-2">비로소 '1'과 '0'을 자유롭게 표현!</h3>
+                        <p class="text-sm text-slate-200 leading-relaxed">
                             중간에 <strong>스위치(트랜지스터)</strong>를 달아 전기 흐름을 열고 닫을 수 있게 되면, 우리가 원할 때 정확히 <strong>1(ON)과 0(OFF)</strong>을 만들어낼 수 있습니다.
                         </p>
                     </div>
@@ -1311,8 +1323,8 @@ button:disabled { cursor: not-allowed; }
         ====================================================================== -->
         <section class="slide" id="slide-6">
             <!-- 타이틀 영역 -->
-            <div class="flex justify-between items-end mb-3">
-                <div>
+            <div class="flex justify-between items-end mb-2 gap-4 flex-wrap">
+                <div class="min-w-0 flex-1">
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         데이터를 <span class="text-cyan-400">'저장'</span>하려면 <span class="text-emerald-400">커패시터</span>가 필요하다
                     </h2>
@@ -1320,35 +1332,33 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 모드 전환 토글 버튼 -->
-                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 space-x-1.5">
-                    <button onclick="setSlide7Mode('nocap')" id="s7-btn-nocap" class="px-4 py-1.5 rounded-lg text-xs font-bold transition bg-rose-500 text-white shadow-lg shadow-rose-500/30">
+                <div class="flex bg-slate-900 p-1.5 rounded-xl border border-slate-700 gap-1.5 shrink-0">
+                    <button onclick="setSlide7Mode('nocap')" id="s7-btn-nocap" class="px-4 py-1.5 rounded-lg text-sm font-bold transition bg-rose-500 text-white shadow-lg shadow-rose-500/30">
                         커패시터 없음 (저장 불가)
                     </button>
-                    <button onclick="setSlide7Mode('withcap')" id="s7-btn-withcap" class="px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">
+                    <button onclick="setSlide7Mode('withcap')" id="s7-btn-withcap" class="px-4 py-1.5 rounded-lg text-sm font-bold transition text-slate-400 hover:text-white">
                         커패시터 있음 (DRAM 셀)
                     </button>
                 </div>
             </div>
 
             <!-- 메인 시뮬레이션 무대 -->
-            <div class="flex-1 grid grid-cols-12 gap-5 my-1">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 
                 <!-- 좌측 8컬럼: 커패시터 충·방전 시각화 무대 -->
-                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col justify-between relative">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-2">
-                            <span id="s7-status-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
-                                커패시터 없음: 스위치를 끄면 데이터가 즉시 날아감!
-                            </span>
-                        </div>
-                        <div class="text-xs font-mono bg-slate-800 px-3 py-1 rounded-lg border border-slate-700">
-                            현재 기억된 값: <span id="s7-memory-val" class="text-amber-400 font-black text-base">1</span>
+                <div class="col-span-8 bg-slate-900/95 border border-slate-700 rounded-2xl p-4 flex flex-col min-h-0 relative">
+                    <div class="flex justify-between items-center mb-2 gap-2">
+                        <span id="s7-status-badge" class="px-3 py-1 rounded-full text-sm font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                            커패시터 없음: 스위치를 끄면 데이터가 즉시 날아감!
+                        </span>
+                        <div class="text-sm font-mono bg-slate-800 px-3 py-1 rounded-lg border border-slate-700 shrink-0">
+                            현재 기억된 값: <span id="s7-memory-val" class="text-amber-400 font-black text-lg">1</span>
                         </div>
                     </div>
 
                     <!-- 회로 + 커패시터(전기 물탱크) SVG -->
-                    <div class="my-auto">
-                        <svg aria-hidden="true" class="w-full h-52" viewBox="0 0 640 205">
+                    <div class="flex-1 flex items-center justify-center min-h-0 my-1">
+                        <svg aria-hidden="true" class="w-full h-full max-h-[22rem]" viewBox="0 0 640 205" preserveAspectRatio="xMidYMid meet">
                             <!-- 1. 전원 -->
                             <g transform="translate(30, 50)">
                                 <rect x="0" y="10" width="70" height="85" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
@@ -1394,36 +1404,36 @@ button:disabled { cursor: not-allowed; }
                     </div>
 
                     <!-- 하단 컨트롤 버튼 바 -->
-                    <div class="flex justify-center items-center space-x-3">
-                        <button onclick="controlSlide7Switch('on')" id="s7-act-on" class="px-4 py-2 rounded-xl text-xs font-black bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-md transition">
+                    <div class="flex justify-center items-center gap-3 mt-2">
+                        <button onclick="controlSlide7Switch('on')" id="s7-act-on" class="px-5 py-2.5 rounded-xl text-sm font-black bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-md transition">
                             스위치 ON, 전원 연결 (1 쓰기)
                         </button>
-                        <button onclick="controlSlide7Switch('off')" id="s7-act-off" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-700 hover:bg-slate-600 text-white border border-slate-500 transition">
+                        <button onclick="controlSlide7Switch('off')" id="s7-act-off" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-700 hover:bg-slate-600 text-white border border-slate-500 transition">
                             스위치 OFF, 전원 차단 (0 유지)
                         </button>
-                        <button onclick="controlSlide7Switch('drain')" id="s7-act-drain" class="hidden px-4 py-2 rounded-xl text-xs font-bold bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 transition">
+                        <button onclick="controlSlide7Switch('drain')" id="s7-act-drain" class="hidden px-5 py-2.5 rounded-xl text-sm font-bold bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 transition">
                             커패시터 비우기 (0으로 초기화)
                         </button>
                     </div>
                 </div>
 
                 <!-- 우측 4컬럼: 왜 커패시터인가? -->
-                <div class="col-span-4 flex flex-col space-y-3">
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <span class="text-xs font-bold text-rose-400 mb-1">문제점</span>
-                        <h3 class="text-base font-bold text-white mb-1.5">스위치를 끄면 데이터가 증발!</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+                <div class="col-span-4 flex flex-col gap-4 min-h-0">
+                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <span class="text-sm font-bold text-rose-400 mb-2">문제점</span>
+                        <h3 class="text-xl font-bold text-white mb-2">스위치를 끄면 데이터가 증발!</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
                             전기를 담아둘 그릇이 없으면, 스위치를 여는(OFF) 즉시 전류가 끊겨 방금 입력한 <strong>'1'이라는 정보가 사라집니다.</strong>
                         </p>
                     </div>
 
-                    <div class="bg-emerald-950/40 border-2 border-emerald-400/70 rounded-2xl p-4 flex-1 flex flex-col justify-center">
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-xs font-bold text-emerald-300">DRAM의 해답: 커패시터</span>
-                            <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[11px] rounded font-bold">초고속 충·방전</span>
+                    <div class="bg-emerald-950/40 border-2 border-emerald-400/70 rounded-2xl p-5 flex-1 flex flex-col justify-center">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-bold text-emerald-300">DRAM의 해답: 커패시터</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-xs rounded font-bold">초고속 충·방전</span>
                         </div>
-                        <h3 class="text-base font-bold text-white mb-1.5">전기를 담아두는 초미니 물탱크</h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
+                        <h3 class="text-xl font-bold text-white mb-2">전기를 담아두는 초미니 물탱크</h3>
+                        <p class="text-sm text-slate-200 leading-relaxed">
                             커패시터에 전기를 채워두면 <strong>스위치를 끊어도 '1'이 유지</strong>됩니다. 일반 배터리보다 훨씬 작고 충·방전 속도가 압도적으로 빨라 DRAM에 사용됩니다.
                         </p>
                     </div>
@@ -1437,7 +1447,7 @@ button:disabled { cursor: not-allowed; }
         ====================================================================== -->
         <section class="slide" id="slide-7">
             <!-- 타이틀 영역 -->
-            <div class="flex justify-between items-end mb-3">
+            <div class="flex justify-between items-end mb-2">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         <span class="text-cyan-400">[스위치 + 커패시터]</span>가 수백억 개 모이면?
@@ -1447,42 +1457,42 @@ button:disabled { cursor: not-allowed; }
             </div>
 
             <!-- 상단: 30개의 셀만 있어도 ~10억(약 1억~10억 단위) 표현 가능 시각화 -->
-            <div class="bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-3.5 mb-3 flex items-center justify-between">
-                <div class="flex items-center space-x-4">
+            <div class="bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-4 mb-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-5 min-w-0">
                     <!-- 30개 미니 셀(스위치+커패시터) 10x3 그리드 -->
-                    <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
-                        <div id="mini-30-cells" class="grid grid-cols-10 gap-1">
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 shrink-0">
+                        <div id="mini-30-cells" class="grid grid-cols-10 gap-1.5">
                             <!-- JS로 30개 셀 렌더링 -->
                         </div>
                     </div>
-                    <div>
-                        <div class="text-xs font-bold text-cyan-300 mb-0.5">겨우 30개의 스위치 + 커패시터만 모여도!</div>
-                        <p class="text-sm text-slate-200">
-                            켜짐(1)과 꺼짐(0)의 조합이 <strong class="text-amber-400 font-mono text-base">2³⁰ = 1,073,741,824 (약 10억 가지)</strong>로 폭발합니다.
+                    <div class="min-w-0">
+                        <div class="text-sm font-bold text-cyan-300 mb-1">겨우 30개의 스위치 + 커패시터만 모여도!</div>
+                        <p class="text-base text-slate-200 leading-relaxed">
+                            켜짐(1)과 꺼짐(0)의 조합이 <strong class="text-amber-400 font-mono text-lg">2³⁰ = 1,073,741,824 (약 10억 가지)</strong>로 폭발합니다.
                         </p>
                     </div>
                 </div>
-                <div class="hidden md:block text-right pr-2">
-                    <span class="px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs font-bold">
+                <div class="hidden md:block text-right pr-2 shrink-0">
+                    <span class="px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-sm font-bold">
                         1 Cell = 1 Switch + 1 Capacitor
                     </span>
                 </div>
             </div>
 
             <!-- 하단: 50년 전 8KB(마리오) vs 오늘날 16GB 극적인 스케일 비교 -->
-            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 
                 <!-- 좌측 5컬럼: 약 40~50년 전 8KB 메모리 -->
-                <div class="col-span-5 bg-slate-900/90 border border-amber-500/40 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden">
+                <div class="col-span-5 bg-slate-900/90 border border-amber-500/40 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden min-h-0">
                     <div class="flex justify-between items-center">
-                        <span class="px-2.5 py-0.5 bg-amber-500/20 text-amber-300 text-xs font-bold rounded">과거 · 초기 게임기 시대</span>
-                        <span class="text-xs font-mono text-slate-400">셀 약 65,536개</span>
+                        <span class="px-2.5 py-1 bg-amber-500/20 text-amber-300 text-sm font-bold rounded">과거 · 초기 게임기 시대</span>
+                        <span class="text-sm font-mono text-slate-400">셀 약 65,536개</span>
                     </div>
 
-                    <div class="flex items-center space-x-4 my-auto py-1">
+                    <div class="flex items-center gap-5 my-auto py-2">
                         <!-- 레트로 픽셀 버섯/마리오 블록 SVG -->
-                        <div class="w-24 h-24 rounded-2xl bg-slate-950 border-2 border-amber-500/50 flex items-center justify-center shrink-0 shadow-inner">
-                            <svg aria-hidden="true" class="w-16 h-16" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                        <div class="w-28 h-28 rounded-2xl bg-slate-950 border-2 border-amber-500/50 flex items-center justify-center shrink-0 shadow-inner">
+                            <svg aria-hidden="true" class="w-20 h-20" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <!-- 픽셀 슈퍼 버섯 아이콘 -->
                                 <rect x="5" y="1" width="6" height="1" fill="#ef4444"/>
                                 <rect x="3" y="2" width="10" height="2" fill="#ef4444"/>
@@ -1499,58 +1509,58 @@ button:disabled { cursor: not-allowed; }
                         </div>
 
                         <div>
-                            <div class="text-3xl font-black text-amber-400 tracking-tight">8 KB</div>
-                            <div class="text-sm font-bold text-white mt-0.5">전설의 슈퍼 마리오 구현!</div>
-                            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                            <div class="text-4xl font-black text-amber-400 tracking-tight">8 KB</div>
+                            <div class="text-base font-bold text-white mt-1">전설의 슈퍼 마리오 구현!</div>
+                            <p class="text-sm text-slate-300 mt-2 leading-relaxed">
                                 스위치+커패시터 약 <strong>6만 5천 개</strong>만으로 캐릭터의 점프, 배경, 음악까지 모두 담아냈습니다.
                             </p>
                         </div>
                     </div>
 
-                    <div class="bg-amber-950/30 border border-amber-500/20 rounded-xl px-3 py-1.5 text-[11px] text-amber-200 text-center">
+                    <div class="bg-amber-950/30 border border-amber-500/20 rounded-xl px-3 py-2 text-sm text-amber-200 text-center leading-relaxed">
                         "불과 수만 개의 스위치로도 하나의 게임 세상이 탄생했습니다."
                     </div>
                 </div>
 
                 <!-- 중앙 2컬럼: 배수 비교 화살표 -->
                 <div class="col-span-2 flex flex-col items-center justify-center text-center">
-                    <div class="text-xs font-bold text-slate-400 mb-1">용량 확장</div>
-                    <div class="px-2.5 py-2 rounded-2xl bg-cyan-400 text-slate-950 font-black text-sm shadow-lg shadow-cyan-500/20">
+                    <div class="text-sm font-bold text-slate-400 mb-2">용량 확장</div>
+                    <div class="px-3 py-3 rounded-2xl bg-cyan-400 text-slate-950 font-black text-base shadow-lg shadow-cyan-500/20 leading-snug">
                         약 200만 배<br>초고집적!
                     </div>
-                    <svg aria-hidden="true" class="w-8 h-8 text-cyan-400 mt-1 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-10 h-10 text-cyan-400 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
                     </svg>
                 </div>
 
                 <!-- 우측 5컬럼: 오늘날 16GB DRAM -->
-                <div class="col-span-5 bg-gradient-to-br from-cyan-950/80 via-slate-900 to-blue-950/80 border-2 border-cyan-400 rounded-2xl p-4 flex flex-col justify-between shadow-2xl shadow-cyan-500/15 relative overflow-hidden">
+                <div class="col-span-5 bg-gradient-to-br from-cyan-950/80 via-slate-900 to-blue-950/80 border-2 border-cyan-400 rounded-2xl p-5 flex flex-col justify-between shadow-2xl shadow-cyan-500/15 relative overflow-hidden min-h-0">
                     <div class="flex justify-between items-center">
-                        <span class="px-2.5 py-0.5 bg-cyan-400 text-slate-950 text-xs font-black rounded">현재 · 현대 컴퓨터/스마트폰</span>
-                        <span class="text-xs font-mono text-cyan-300 font-bold">셀 약 1,374억 개</span>
+                        <span class="px-2.5 py-1 bg-cyan-400 text-slate-950 text-sm font-black rounded">현재 · 현대 컴퓨터/스마트폰</span>
+                        <span class="text-sm font-mono text-cyan-300 font-bold">셀 약 1,374억 개</span>
                     </div>
 
-                    <div class="flex items-center space-x-4 my-auto py-1">
+                    <div class="flex items-center gap-5 my-auto py-2">
                         <!-- 현대 초고집적 DRAM 칩 일러스트 -->
-                        <div class="w-24 h-24 rounded-2xl bg-slate-950 border-2 border-cyan-400 flex flex-col items-center justify-center shrink-0 glow-cyan">
-                            <svg aria-hidden="true" class="w-12 h-12 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <div class="w-28 h-28 rounded-2xl bg-slate-950 border-2 border-cyan-400 flex flex-col items-center justify-center shrink-0 glow-cyan">
+                            <svg aria-hidden="true" class="w-14 h-14 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                                 <rect x="4" y="4" width="16" height="16" rx="2"/>
                                 <rect x="8" y="8" width="8" height="8" rx="1" fill="currentColor" fill-opacity="0.3"/>
                                 <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/>
                             </svg>
-                            <span class="text-[11px] text-cyan-400 font-bold mt-1">DDR5 DRAM</span>
+                            <span class="text-xs text-cyan-400 font-bold mt-1">DDR5 DRAM</span>
                         </div>
 
                         <div>
-                            <div class="text-3xl font-black text-cyan-300 tracking-tight">16 GB</div>
-                            <div class="text-sm font-bold text-white mt-0.5">손톱만한 칩에 1,370억 개의 셀!</div>
-                            <p class="text-xs text-slate-200 mt-1 leading-relaxed">
+                            <div class="text-4xl font-black text-cyan-300 tracking-tight">16 GB</div>
+                            <div class="text-base font-bold text-white mt-1">손톱만한 칩에 1,370억 개의 셀!</div>
+                            <p class="text-sm text-slate-200 mt-2 leading-relaxed">
                                 4K 영상, 고사양 3D 게임, 인공지능(AI)까지 수십 개의 무거운 일감을 동시에 선반에 올려둡니다.
                             </p>
                         </div>
                     </div>
 
-                    <div class="bg-cyan-500/15 border border-cyan-400/40 rounded-xl px-3 py-1.5 text-[11px] text-cyan-200 text-center font-bold">
+                    <div class="bg-cyan-500/15 border border-cyan-400/40 rounded-xl px-3 py-2 text-sm text-cyan-200 text-center font-bold leading-relaxed">
                         "수백억 개의 초미니 스위치+커패시터가 빛의 속도로 일하고 있습니다."
                     </div>
                 </div>
@@ -2147,8 +2157,8 @@ button:disabled { cursor: not-allowed; }
              SLIDE 14: 종합 정리 - 한눈에 보는 DRAM 버티컬(수직) 구조와 데이터 이동 경로
         ====================================================================== -->
         <section class="slide" id="slide-13">
-            <div class="flex justify-between items-end mb-2">
-                <div>
+            <div class="flex justify-between items-end mb-2 gap-4 flex-wrap">
+                <div class="min-w-0 flex-1">
                     <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
                         종합: 한눈에 보는 <span class="text-cyan-400">DRAM 버티컬(수직) 구조</span>
                     </h2>
@@ -2156,23 +2166,23 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 전체 데이터 읽기 시뮬레이션 버튼 -->
-                <button onclick="runVerticalSimulation()" id="s14-sim-btn" class="px-5 py-2 rounded-xl text-sm font-black bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 shadow-lg shadow-cyan-500/30 transition flex items-center space-x-2">
+                <button onclick="runVerticalSimulation()" id="s14-sim-btn" class="px-5 py-2.5 rounded-xl text-base font-black bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 shadow-lg shadow-cyan-500/30 transition flex items-center gap-2 shrink-0">
                     <span>데이터 읽기 경로 시뮬레이션</span>
                 </button>
             </div>
 
-            <div class="flex-1 grid grid-cols-12 gap-5 my-1">
+            <div class="flex-1 grid grid-cols-12 gap-5 items-stretch min-h-0">
                 <!-- 좌측 8컬럼: 실제 DRAM 수직(Vertical) 단면 종합 SVG -->
-                <div class="col-span-8 bg-slate-900/95 border border-cyan-500/40 rounded-2xl p-3 flex flex-col justify-between relative">
-                    <div class="flex justify-between items-center px-1">
-                        <span id="s14-step-status" class="text-xs font-bold text-cyan-300">
+                <div class="col-span-8 bg-slate-900/95 border border-cyan-500/40 rounded-2xl p-4 flex flex-col min-h-0 relative">
+                    <div class="flex justify-between items-center mb-2 gap-2">
+                        <span id="s14-step-status" class="text-sm font-bold text-cyan-300">
                             버튼을 눌러 저장된 데이터 '1'이 CPU로 올라가는 전체 과정을 확인하세요!
                         </span>
-                        <span class="text-[11px] text-slate-400">1T1C Vertical Cross-Section</span>
+                        <span class="text-xs text-slate-400 shrink-0">1T1C Vertical Cross-Section</span>
                     </div>
 
-                    <div class="my-auto">
-                        <svg aria-hidden="true" class="w-full h-64" viewBox="0 0 660 250">
+                    <div class="flex-1 flex items-center justify-center min-h-0 my-1">
+                        <svg aria-hidden="true" class="w-full h-full max-h-[24rem]" viewBox="0 0 660 250" preserveAspectRatio="xMidYMid meet">
                             <!-- 상단 CPU 도착지 -->
                             <rect x="135" y="4" width="130" height="26" rx="7" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"/>
                             <text x="200" y="21" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="black">CPU로 전송 (BL)</text>
@@ -2237,25 +2247,25 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 우측 4컬럼: 4단계 구조 & 경로 핵심 요약 -->
-                <div class="col-span-4 flex flex-col justify-between space-y-2.5">
-                    <div class="bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-3">
-                        <div class="text-xs font-black text-emerald-300">1. 커패시터 (위로 솟은 기둥)</div>
-                        <p class="text-[11px] text-slate-300 mt-0.5">좁은 면적에 많은 전기를 담기 위해 위로 높게 쌓아 <strong>1과 0을 저장</strong>합니다.</p>
+                <div class="col-span-4 flex flex-col gap-3 min-h-0">
+                    <div class="bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-black text-emerald-300">1. 커패시터 (위로 솟은 기둥)</div>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">좁은 면적에 많은 전기를 담기 위해 위로 높게 쌓아 <strong>1과 0을 저장</strong>합니다.</p>
                     </div>
 
-                    <div class="bg-blue-950/40 border border-blue-500/50 rounded-xl p-3">
-                        <div class="text-xs font-black text-blue-300">2. Word Line & MOSFET (중간 문)</div>
-                        <p class="text-[11px] text-slate-300 mt-0.5">Word Line에 신호가 들어오면 바닥에 <strong>전자 다리(채널)</strong>가 열립니다.</p>
+                    <div class="bg-blue-950/40 border border-blue-500/50 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-black text-blue-300">2. Word Line & MOSFET (중간 문)</div>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">Word Line에 신호가 들어오면 바닥에 <strong>전자 다리(채널)</strong>가 열립니다.</p>
                     </div>
 
-                    <div class="bg-purple-950/40 border border-purple-500/50 rounded-xl p-3">
-                        <div class="text-xs font-black text-purple-300">3. Bit Line (세로 고속도로)</div>
-                        <p class="text-[11px] text-slate-300 mt-0.5">다리를 건넌 데이터가 Bit Line을 타고 <strong>CPU로 즉시 전달</strong>됩니다.</p>
+                    <div class="bg-purple-950/40 border border-purple-500/50 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-black text-purple-300">3. Bit Line (세로 고속도로)</div>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">다리를 건넌 데이터가 Bit Line을 타고 <strong>CPU로 즉시 전달</strong>됩니다.</p>
                     </div>
 
-                    <div class="bg-amber-950/40 border border-amber-500/50 rounded-xl p-3">
-                        <div class="text-xs font-black text-amber-300">4. STI (양쪽 절연 담장)</div>
-                        <p class="text-[11px] text-slate-300 mt-0.5">옆 방의 셀들과 전기가 섞이지 않도록 <strong>물리적으로 완벽 차단</strong>합니다.</p>
+                    <div class="bg-amber-950/40 border border-amber-500/50 rounded-xl p-4 flex-1 flex flex-col justify-center">
+                        <div class="text-sm font-black text-amber-300">4. STI (양쪽 절연 담장)</div>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">옆 방의 셀들과 전기가 섞이지 않도록 <strong>물리적으로 완벽 차단</strong>합니다.</p>
                     </div>
                 </div>
             </div>
@@ -3549,10 +3559,10 @@ button:disabled { cursor: not-allowed; }
         const samplePattern = [1,0,1,1,0,1,0,0,1,1, 0,1,1,0,1,0,1,1,0,1, 1,1,0,1,0,1,1,0,1,0];
         samplePattern.forEach((bit) => {
             const cell = document.createElement('div');
-            cell.className = `w-3.5 h-3.5 rounded-sm flex items-center justify-center text-[8px] font-mono font-bold ${
+            cell.className = `w-5 h-5 md:w-5 md:h-5 rounded-sm flex items-center justify-center text-[10px] font-mono font-bold ${
                 bit === 1
-                ? 'bg-cyan-400 text-slate-950 shadow-[0_0_5px_rgba(34,211,238,0.6)]'
-                : 'bg-slate-800 text-slate-400 border border-slate-700'
+                ? 'bg-cyan-400 text-slate-950 shadow-[0_0_6px_rgba(34,211,238,0.6)]'
+                : 'bg-slate-800 text-slate-300 border border-slate-700'
             }`;
             cell.textContent = bit;
             container.appendChild(cell);
