@@ -11,3 +11,6 @@
 
 # Hallmark design-tool scratch
 .hallmark/
+
+# Local secrets
+.env
