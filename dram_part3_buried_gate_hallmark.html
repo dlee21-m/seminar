@@ -7,7 +7,6 @@
     <meta name="description" content="폰 노이만 구조에서 출발해 MOSFET, 커패시터, Buried Gate, Cylinder Capacitor, Contact까지 DRAM의 원리를 20장의 인터랙티브 슬라이드로 설명합니다.">
     <meta name="theme-color" content="#090d16">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>document.documentElement.classList.add('js');</script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
 /* Hallmark · built: dram_part3_buried_gate_revision.html · redesign: polish · theme: none (the deck's own system) · genre modern-minimal · hero: stage (the 16:9 slide is the page) · nav: deck header, topic left, one fullscreen control right · footer: dot rail, counter, previous and next */
@@ -2512,6 +2511,22 @@ button:disabled { cursor: not-allowed; }
 </div>
 
 <script>
+    // 이 스크립트가 실제로 실행될 때만 슬라이드 숨김 모드를 켠다.
+    // 스크립트가 막히면 모든 슬라이드가 보이는 no-js 상태로 남는다.
+    document.documentElement.classList.add('js');
+
+    // onclick 속성 대신 addEventListener로 연결한다.
+    // 일부 뷰어/보안 정책은 인라인 이벤트 속성만 제거하기 때문에
+    // 버튼이 있는 그대로 동작하도록 여기서 한 번에 배선한다.
+    function wireInlineHandlers() {
+        document.querySelectorAll('[onclick]').forEach(el => {
+            const expression = el.getAttribute('onclick');
+            const handler = new Function('event', expression);
+            el.removeAttribute('onclick');
+            el.addEventListener('click', handler);
+        });
+    }
+
     // =========================================================================
     // 1. 슬라이드 전환 상태 관리 (총 14페이지)
     // =========================================================================
@@ -3647,6 +3662,7 @@ button:disabled { cursor: not-allowed; }
     }
 
     // 초기화
+    wireInlineHandlers();
     updateSlideUI();
     renderBulbBoard();
     setSlide6Mode('noswitch');
