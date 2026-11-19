@@ -1,0 +1,13 @@
+# Windows / Explorer metadata
+*:Zone.Identifier
+
+# Backup and scratch files
+*.bak
+*.bak*
+*.orig
+*.tmp
+*.pre-hallmark*
+*.pre-redesign*
+
+# Hallmark design-tool scratch
+.hallmark/
