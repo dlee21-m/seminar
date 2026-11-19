@@ -247,6 +247,56 @@ html:not(.js) .slide + .slide { border-top: 1px solid var(--line); }
     100% { opacity: 0; transform: translateX(48px); }
 }
 
+/* Slide 11 · balloon static-electricity analogy, animated while the slide is active */
+#s11-balloon { transform-box: fill-box; transform-origin: center bottom; }
+#s11-hair-strands { transform-box: fill-box; transform-origin: center bottom; }
+.slide.active #s11-balloon { animation: s11BalloonRub 2.8s ease-in-out infinite; }
+.slide.active #s11-hair-strands { animation: s11HairRise 2.8s ease-in-out infinite; }
+.s11-sparks { opacity: 0; }
+.slide.active .s11-sparks { animation: s11Sparks 2.8s ease-in-out infinite; }
+.slide.active .s11-attract path {
+    stroke-dasharray: 4 4;
+    animation: s11AttractFlow 0.8s linear infinite, s11AttractGlow 2.8s ease-in-out infinite;
+}
+@keyframes s11BalloonRub {
+    0%, 100% { transform: translate(0, -6px) rotate(0deg); }
+    15% { transform: translate(-7px, 10px) rotate(-5deg); }
+    30% { transform: translate(7px, 10px) rotate(5deg); }
+    45% { transform: translate(-7px, 10px) rotate(-5deg); }
+    60% { transform: translate(0, -2px) rotate(0deg); }
+    75% { transform: translate(0, -6px) rotate(0deg); }
+}
+@keyframes s11HairRise {
+    0%, 100% { transform: scaleY(0.88); }
+    35%, 70% { transform: scaleY(1.16); }
+}
+@keyframes s11Sparks {
+    0%, 10%, 45%, 100% { opacity: 0; }
+    18%, 32% { opacity: 0.9; }
+    55%, 65% { opacity: 0.6; }
+}
+@keyframes s11AttractFlow { to { stroke-dashoffset: -16; } }
+@keyframes s11AttractGlow {
+    0%, 100% { opacity: 0.3; }
+    40%, 75% { opacity: 1; }
+}
+.s11-step { opacity: 0.4; transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out); }
+.slide.active .s11-step-1 { animation: s11Step1 2.8s ease-in-out infinite; }
+.slide.active .s11-step-2 { animation: s11Step2 2.8s ease-in-out infinite; }
+.slide.active .s11-step-3 { animation: s11Step3 2.8s ease-in-out infinite; }
+@keyframes s11Step1 {
+    0%, 15%, 100% { opacity: 0.4; transform: none; }
+    20%, 35% { opacity: 1; transform: scale(1.06); }
+}
+@keyframes s11Step2 {
+    0%, 35%, 100% { opacity: 0.4; transform: none; }
+    40%, 55% { opacity: 1; transform: scale(1.06); }
+}
+@keyframes s11Step3 {
+    0%, 55%, 100% { opacity: 0.4; transform: none; }
+    60%, 85% { opacity: 1; transform: scale(1.06); }
+}
+
 .worker-arm {
     transition: transform 0.25s var(--ease-out);
     transform-origin: 45px 45px;
@@ -284,7 +334,10 @@ button:disabled { cursor: not-allowed; }
     #s1-mem::before,
     #s1-cpu.is-working .s1-alu,
     #s1-output.is-outputting,
-    .s1-packet.run-fetch, .s1-packet.run-store, .s1-packet.run-output {
+    .s1-packet.run-fetch, .s1-packet.run-store, .s1-packet.run-output,
+    .slide.active #s11-balloon, .slide.active #s11-hair-strands,
+    .slide.active .s11-sparks, .slide.active .s11-attract path,
+    .slide.active .s11-step {
         animation: none !important;
     }
     .js .slide.active { animation: none; opacity: 1; transform: none; pointer-events: auto; }
@@ -1746,30 +1799,53 @@ button:disabled { cursor: not-allowed; }
 
                     <h3 class="text-lg font-black text-white mt-1">풍선으로 머리를 문지를 때!</h3>
 
-                    <!-- 풍선 & 머리카락 정전기 SVG 일러스트 -->
+                    <!-- 풍선 & 머리카락 정전기 SVG 일러스트 (슬라이드 활성화 시 반복 재생) -->
                     <div class="my-auto bg-slate-950/70 rounded-xl border border-slate-800 p-2">
-                        <svg aria-hidden="true" class="w-full h-44" viewBox="0 0 320 170">
-                            <!-- 위쪽: (-) 전기를 띤 풍선 -->
-                            <ellipse cx="160" cy="42" rx="68" ry="34" fill="#f43f5e" stroke="#fda4af" stroke-width="2"/>
-                            <polygon points="160,76 154,84 166,84" fill="#f43f5e"/>
-                            <!-- 풍선 바닥에 모인 (-) 전하 -->
-                            <text x="125" y="64" fill="#ffffff" font-size="14" font-weight="black">- - - - - - -</text>
-                            <text x="160" y="36" text-anchor="middle" fill="#ffe4e6" font-size="11" font-weight="bold">마찰된 풍선 (-)</text>
+                        <svg aria-hidden="true" class="w-full h-40" viewBox="0 0 320 170">
+                            <!-- 공기(절연체) 구역 -->
+                            <rect x="18" y="88" width="284" height="32" rx="10" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-opacity="0.25" stroke-dasharray="4 4"/>
+                            <text x="265" y="108" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="bold">공기(절연체)</text>
 
-                            <!-- 중간: 공기(절연체) 사이 인력 화살표 -->
-                            <path d="M 125 82 V 112 M 160 86 V 112 M 195 82 V 112" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3 3"/>
-                            <text x="265" y="102" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">공기(절연체) 사이로<br>서로 끌어당김!</text>
+                            <!-- 공기 사이로 작용하는 인력 -->
+                            <g class="s11-attract" stroke="#fbbf24" stroke-width="2">
+                                <path d="M 125 88 V 112"/>
+                                <path d="M 160 90 V 112"/>
+                                <path d="M 195 88 V 112"/>
+                            </g>
 
-                            <!-- 아래쪽: 사람 머리와 위로 붕 뜬 머리카락 (+) -->
+                            <!-- 사람 머리 (정지) -->
                             <path d="M 95 168 C 95 135 225 135 225 168 Z" fill="#334155"/>
-                            <!-- 위로 솟구친 머리카락 가닥들 -->
-                            <path d="M 125 142 Q 120 120 125 108" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                            <path d="M 160 138 Q 160 118 160 108" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                            <path d="M 195 142 Q 200 120 195 108" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                            <text x="125" y="128" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
-                            <text x="160" y="125" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
-                            <text x="195" y="128" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
+
+                            <!-- 머리카락 (+) : 문지르면 정전기로 위로 솟음 -->
+                            <g id="s11-hair-strands">
+                                <path d="M 125 142 Q 120 118 125 102" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                                <path d="M 160 138 Q 160 114 160 100" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                                <path d="M 195 142 Q 200 118 195 102" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                                <text x="125" y="118" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
+                                <text x="160" y="114" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
+                                <text x="195" y="118" fill="#7dd3fc" font-size="12" font-weight="black">+</text>
+                            </g>
+
+                            <!-- 마찰 순간 스파크 -->
+                            <g class="s11-sparks" stroke="#fde047" stroke-width="2" stroke-linecap="round">
+                                <path d="M 108 92 l -6 -6"/>
+                                <path d="M 212 92 l 6 -6"/>
+                                <path d="M 160 96 l 0 -8"/>
+                            </g>
+
+                            <!-- 풍선 (-) : 좌우로 문지르며 아래로 내려갔다 올라옴 -->
+                            <g id="s11-balloon">
+                                <ellipse cx="160" cy="42" rx="68" ry="34" fill="#f43f5e" stroke="#fda4af" stroke-width="2"/>
+                                <polygon points="160,76 154,84 166,84" fill="#f43f5e"/>
+                                <text x="125" y="64" fill="#ffffff" font-size="14" font-weight="black">- - - - - - -</text>
+                                <text x="160" y="36" text-anchor="middle" fill="#ffe4e6" font-size="11" font-weight="bold">마찰된 풍선 (-)</text>
+                            </g>
                         </svg>
+                        <div class="flex justify-center gap-1.5 mt-1 text-[9px] font-bold">
+                            <span class="s11-step s11-step-1 inline-block px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">① 문지르기</span>
+                            <span class="s11-step s11-step-2 inline-block px-2 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">② 전하 분리</span>
+                            <span class="s11-step s11-step-3 inline-block px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">③ 끌어당김</span>
+                        </div>
                     </div>
 
                     <p class="text-xs text-slate-300 leading-relaxed bg-slate-800/80 p-3 rounded-xl border border-slate-700">
