@@ -401,19 +401,19 @@ button:disabled { cursor: not-allowed; }
                                 <span class="text-xs font-bold tracking-normal text-cyan-200">주기억장치 (Memory)</span>
                                 <span class="px-2 py-0.5 bg-cyan-300 text-slate-950 text-[11px] rounded font-black shadow-lg shadow-cyan-500/30">★ DRAM</span>
                             </div>
-                            <div class="bg-slate-900/90 border border-cyan-400/50 rounded-xl p-4 flex items-center justify-between">
-                                <div class="min-w-0">
+                            <div class="bg-slate-900/90 border border-cyan-400/50 rounded-xl p-4">
+                                <div class="flex items-center justify-between">
                                     <div class="text-base font-bold text-white">프로그램 & 데이터 보관</div>
-                                    <div class="text-xs text-cyan-100/80 mt-0.5">CPU가 즉시 꺼내 쓸 수 있는 작업 공간</div>
-                                    <div class="text-[11px] text-cyan-300 font-bold mt-1.5">모든 데이터의 출발점 · 도착점</div>
+                                    <!-- DRAM 칩 아이콘 -->
+                                    <svg aria-hidden="true" class="w-10 h-10 text-cyan-300 shrink-0 ml-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <rect x="4" y="6" width="16" height="12" rx="2" />
+                                        <path d="M8 6V3M12 6V3M16 6V3M8 18v3M12 18v3M16 18v3" />
+                                        <rect x="7" y="9" width="3" height="6" fill="currentColor" fill-opacity="0.3" />
+                                        <rect x="14" y="9" width="3" height="6" fill="currentColor" fill-opacity="0.3" />
+                                    </svg>
                                 </div>
-                                <!-- DRAM 칩 아이콘 -->
-                                <svg aria-hidden="true" class="w-12 h-12 text-cyan-300 shrink-0 ml-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                    <rect x="4" y="6" width="16" height="12" rx="2" />
-                                    <path d="M8 6V3M12 6V3M16 6V3M8 18v3M12 18v3M16 18v3" />
-                                    <rect x="7" y="9" width="3" height="6" fill="currentColor" fill-opacity="0.3" />
-                                    <rect x="14" y="9" width="3" height="6" fill="currentColor" fill-opacity="0.3" />
-                                </svg>
+                                <div class="text-xs text-cyan-100/80 mt-1">CPU가 즉시 꺼내 쓸 수 있는 작업 공간</div>
+                                <div class="text-[11px] text-cyan-300 font-bold mt-1.5">모든 데이터의 출발점 · 도착점</div>
                             </div>
                         </div>
 
@@ -440,7 +440,7 @@ button:disabled { cursor: not-allowed; }
                 </div>
 
                 <!-- 단계별 설명 + 애니메이션 다시 보기 -->
-                <div id="s1-explain" aria-live="polite" class="w-full max-w-5xl mt-3 flex items-center gap-3 rounded-xl border border-cyan-400/30 bg-slate-900/80 px-4 py-2 shadow-lg shadow-cyan-500/5">
+                <div id="s1-explain" aria-live="polite" class="w-full max-w-5xl mt-6 flex items-center gap-3 rounded-xl border border-cyan-400/30 bg-slate-900/80 px-4 py-2 shadow-lg shadow-cyan-500/5">
                     <span id="s1-explain-mark" class="shrink-0 w-8 h-8 rounded-lg bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center text-sm font-black">◎</span>
                     <div class="min-w-0">
                         <div id="s1-explain-title" class="text-sm font-bold text-cyan-200">전체 구조</div>
